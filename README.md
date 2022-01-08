@@ -5,5 +5,5 @@ Spring 기본 원리 study
 * Link : <https://jwccoding.tistory.com/29>
 -----
 ### 2. SOLID
-* Link : <https://jwccoding.tistory.com/29>
+* Link : <https://jwccoding.tistory.com/30>
 -----
