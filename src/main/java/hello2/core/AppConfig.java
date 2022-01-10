@@ -25,20 +25,13 @@ public class AppConfig {
     // 중복을 최소화 해야함.
     //애플리케이션 전체 구성이 어떻게 되어있는지 빠르게 파악 가능!
     @Bean
-    public MemberService memberService() {
-        System.out.println("call AppConfig.memberService");
-        return new MemberServiceImpl(memberRepository());
+    public MemberService memberService() {return new MemberServiceImpl(memberRepository());
     }
     @Bean
-    public MemberRepository memberRepository() {
-
-        System.out.println("call  AppConfig.memberRepository");
-        return new MemoryMemberRepository();
+    public MemberRepository memberRepository() {return new MemoryMemberRepository();
     }
     @Bean
     public OrderService orderService() { //OrderService는 회원 정보와 할인 정보 두가지 정보 필요
-
-        System.out.println("call  AppConfig.orderRepository");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
     @Bean

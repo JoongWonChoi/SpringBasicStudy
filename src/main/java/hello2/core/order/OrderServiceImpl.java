@@ -6,7 +6,10 @@ import hello2.core.discount.RateDiscountPolicy;
 import hello2.core.member.Member;
 import hello2.core.member.MemberRepsotiry.MemberRepository;
 import hello2.core.member.MemberRepsotiry.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     /*private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -21,7 +24,7 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
     //final 접근자가 있으면 직접적 or 생성자로 반드시 할당이 되어야 함.
-
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
