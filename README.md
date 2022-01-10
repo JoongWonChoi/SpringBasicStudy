@@ -25,3 +25,6 @@ Spring 기본 원리 study!!
 ### 8. Web Application과 Singleton
 * Link : <https://jwccoding.tistory.com/31>
 -----
+### 9. 스프링 컨테이너 자동 등록(Component & Component Scan)
+* Link : <https://jwccoding.tistory.com/37>
+-----
