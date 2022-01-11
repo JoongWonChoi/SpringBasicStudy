@@ -1,6 +1,9 @@
 package hello2.core;
 
 
+import hello2.core.member.MemberRepsotiry.MemberRepository;
+import hello2.core.member.MemberRepsotiry.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -12,6 +15,10 @@ import org.springframework.context.annotation.FilterType;
         //Configuration 애노테이션도 Component에 포함됨.
 )
 public class AutoAppConfig {
+    /*@Bean
+    MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }*/
 
 
 

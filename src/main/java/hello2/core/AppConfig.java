@@ -33,6 +33,9 @@ public class AppConfig {
     @Bean
     public OrderService orderService() { //OrderService는 회원 정보와 할인 정보 두가지 정보 필요
         return new OrderServiceImpl(memberRepository(), discountPolicy());
+
+
+
     }
     @Bean
     public DiscountPolicy discountPolicy() {
