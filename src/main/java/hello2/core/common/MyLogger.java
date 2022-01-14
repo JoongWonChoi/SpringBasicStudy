@@ -2,6 +2,7 @@ package hello2.core.common;
 
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +19,17 @@ import java.util.UUID;
 //중요한 것은 'request가 들어올 때 객체가 생성되고 주입' 되는 것!
 
 @Component
-@Scope(value="request") //스코프를 request로 설정 ==> request가 들어와야만 빈으로 등록되어 스프링 컨테이너로 등록됨.
+//@Scope(value="request")
+// 스코프를 request로 설정 ==> request가 들어와야만 빈으로 등록되어 스프링 컨테이너로 등록됨.
+@Scope(value="request", proxyMode = ScopedProxyMode.TARGET_CLASS) //proxyMode를 추가해보기
+//프록시(proxy)란? ==> 사전적 의미로 대리인, 대리자 등의 의미로, 대신 행해주는 무언가를 지칭하는 용어라고 한다.
+//즉 직접적 대상이 아닌 대리의, 가짜의 무언가를 생성하여 동작을 해주는 의미로 해석하면 될 것 같다.
+//proxyMode를 적용한다는 것은 대리의, 가짜의 무언가를 생성하여 기능을 수행하게끔 한다는 의미인 것 같다.
+//적용 대상이 인터페이스가 아닌 클래스면 TARGET_CLASS, 인터페이스면 TARGET_INTERFACES
+//이는 MyLogger 클래스의 가짜 프록시(대리) 객체를 생성하여 스프링 컨테이너에 등록된다. 의존관계 또한 이 가짜 프록시 객체가 등록됨.
+//가짜 프록시 객체는 원본 클래스를 상속받아 생성된 것이기 때문에, 진짜 클래스의 기능은 모두 구현된다. ==> 다형성의 힘!
+//실제 request가 들어와서 사용할 때가 되면 그제서야 진짜 객체르 생성하여 호출한다.
+
 public class MyLogger {
 
     private String uuid;
